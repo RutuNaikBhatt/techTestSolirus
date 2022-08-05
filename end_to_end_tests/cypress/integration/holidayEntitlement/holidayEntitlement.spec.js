@@ -42,6 +42,8 @@ And("I click on continue button", () => {
 And("I enter {string} number of days worked per week", (option) => {
   noOfDaysPerWeekPage.verifyNoOfDaysPerWeekPage().should("exist");
   noOfDaysPerWeekPage.inputText().click({ force: true }).type(option);
+  cy.wait(2000);
+  cy.percySnapshot("Before - Holiday Entitlement Calculation");
 });
 When("I click on continue button", () => {
   noOfDaysPerWeekPage.continueButton().click();
@@ -49,4 +51,6 @@ When("I click on continue button", () => {
 Then("I should see holiday entitlement as {string} days", (option) => {
   infoBasedOnAnswerPage.verifyinfoBasedOnAnswerPage().should("exist");
   infoBasedOnAnswerPage.verifyStatutoryEntitledHoliday(option).should("exist");
+  cy.wait(2000);
+  cy.percySnapshot("After - Holiday Entitlement Calculation");
 });

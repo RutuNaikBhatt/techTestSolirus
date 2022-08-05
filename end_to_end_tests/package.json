@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress run",
+    "cypress:run-percy" : "set PERCY_TOKEN=924722521737c2feaabf9e317a6f9ebec16430acdf0fc13918dfc7b459a8a10e && cypress run -- percy exec"
   },
   "author": "RutuBhatt",
   "license": "ISC",
